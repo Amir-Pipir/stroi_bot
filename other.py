@@ -158,9 +158,9 @@ async def state_cansel(message: types.Message, state: FSMContext):
 
 def register_handlers(disp: Dispatcher):
     disp.register_message_handler(start, commands=['start'])
-    dp.register_message_handler(state_cansel, state="*", commands="stop")
-    dp.register_message_handler(state_cansel, Text(equals='отмена', ignore_case=True), state="*")
-    dp.register_message_handler(price, state=Add.price)
+    disp.register_message_handler(state_cansel, state="*", commands="stop")
+    disp.register_message_handler(state_cansel, Text(equals='отмена', ignore_case=True), state="*")
+    disp.register_message_handler(price, state=Add.price)
     disp.register_callback_query_handler(choose_time, Text(startswith='time_'))
     disp.register_message_handler(address, state=Add.address)
     disp.register_message_handler(phone_str, state=Add.number)
